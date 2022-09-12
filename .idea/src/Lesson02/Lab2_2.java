@@ -9,9 +9,9 @@ public class Lab2_2 {
         float yNumber = scanner.nextFloat();
 
         if (yNumber % 2 == 0) {
-            System.out.printf("It's an even number!");
+            System.out.println("It's an even number!");
         } else if (yNumber % 2 == 1){
-            System.out.printf("It's is an odd!");
+            System.out.println("It's is an odd!");
         } else {
             System.out.println("Your number is not an integer");
         }
