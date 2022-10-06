@@ -12,37 +12,43 @@ public class AnimalController {
         do {
             // Initial each round
             System.out.println("Round " + turn);
-            Animal tiger = new Tiger();
-            Animal horse = new Horse();
-            Animal dog = new Dog();
+            Animal tiger = new Tiger("Tiger");
+            Animal horse = new Horse("Horse");
+            Animal dog = new Dog("Dog");
             List<Animal> animalList = Arrays.asList(tiger,horse,dog);
+            List<Animal> winnerAnimal = new ArrayList<>();
+
             for (int i = 0; i < animalList.size(); i++) {
                 System.out.println(animalList.get(i).getName()+ ": " +animalList.get(i).getSpeed());
             }
 
             // Print out the result
-            int winner = new AnimalController().Racing(animalList);
-            System.out.println("The Winner is '" + animalList.get(winner).getName() + "' with speed " + animalList.get(winner).getSpeed() + " km/h");
+            Racing(animalList, winnerAnimal);
+            for (int j = 0; j < winnerAnimal.size(); j++) {
+                System.out.println("The Winner is '" + winnerAnimal.get(j).getName() +
+                        "' with speed " + winnerAnimal.get(j).getSpeed() + " km/h");
+            }
             System.out.println("---------");
             turn ++;
         } while (turn <= 3);
     }
 
 
-    // Racing function will be failed if there're 2 animals have the same speed. I don't know how to return 2 values.
-    private static Integer Racing(List<Animal> animalList) {
-        int winner = 0;
-        int winSpeed = animalList.get(0).getSpeed();
-        int position = 0;
-        while(position < animalList.size()){
-            for (int i = 0; i < animalList.size(); i++) {
-                if (animalList.get(i).getSpeed() > winSpeed) {
-                    winner = i;
-                    winSpeed = animalList.get(i).getSpeed();
-                }
-                position++;
+    // Racing function
+    private static void Racing(List<Animal> animalList, List<Animal> winnerAnimal) {
+        int maxSpeed = animalList.get(0).getSpeed();
+
+        // Find the maximum speed
+        for (int i = 0; i < animalList.size(); i++) {
+            if (animalList.get(i).getSpeed() > maxSpeed){
+                maxSpeed = animalList.get(i).getSpeed();
             }
         }
-        return winner;
+        // Add animal to the winner list
+        for (int j = 0; j < animalList.size(); j++) {
+            if (animalList.get(j).getSpeed() == maxSpeed){
+                winnerAnimal.add(animalList.get(j));
+            }
+        }
     }
 }
