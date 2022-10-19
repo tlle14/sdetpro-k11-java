@@ -7,9 +7,9 @@ import java.util.List;
 
 public class AnimalController {
     public static void main(String[] args) {
-        Animal01 tiger = new Tiger().setName().setSpeed();
-        Animal01 horse = new Horse().setName().setSpeed();
-        Animal01 dog = new Dog().setName().setSpeed();
+        Animal01 tiger = new Tiger();
+        Animal01 horse = new Horse();
+        Animal01 dog = new Dog();
 
         // Init racing list & winner list
         List<Animal01> animalList = Arrays.asList(dog, tiger, horse);

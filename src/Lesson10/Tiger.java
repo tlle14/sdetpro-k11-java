@@ -5,17 +5,19 @@ import java.security.SecureRandom;
 public class Tiger extends Animal01 {
 
     static final int TIGER_MAX_SPEED = 100;
-    public Tiger(){}
-
-    @Override
-    public Animal01 setName() {
+    public Tiger(){
         this.name = getClass().getSimpleName();
-        return this;
+        this.speed = new SecureRandom().nextInt(TIGER_MAX_SPEED);
     }
 
     @Override
-    public Animal01 setSpeed() {
-        this.speed = new SecureRandom().nextInt(TIGER_MAX_SPEED);
-        return this;
+    public int getSpeed() {
+        return speed;
     }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
 }

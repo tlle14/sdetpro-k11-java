@@ -7,16 +7,9 @@ public abstract class Animal01 {
     public Animal01() {
     }
 
-    public abstract Animal01 setName();
-    public abstract Animal01 setSpeed();
+    public abstract int getSpeed();
 
-    public int getSpeed() {
-        return speed;
-    }
-
-    public String getName() {
-        return name;
-    }
+    public abstract String getName();
 
     @Override
     public String toString() {
